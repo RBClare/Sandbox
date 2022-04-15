@@ -1,0 +1,41 @@
+void Main()
+{
+	var rate1 = new Rate { CarrierId = 100, ChoicesMade = Choices.DriverAssist | Choices.Deadhead };
+	var rate2 = new Rate { CarrierId = 100, ChoicesMade = Choices.Hazmat | Choices.DriverAssist | Choices.Retention | Choices.WaitingTime };
+	
+	Console.WriteLine("Rate1 accesorials: {0} / Value: {1}", rate1.ChoicesMade, (int)rate1.ChoicesMade);
+	Console.WriteLine("Rate2 accesorials: {0} / Value: {1}", rate2.ChoicesMade, (int)rate2.ChoicesMade);
+	Console.WriteLine("---------------------------------------------------------");
+	Console.WriteLine("Rate2 contains Hazmat: {0}", ((rate2.ChoicesMade & Choices.Hazmat) != 0));
+	Console.WriteLine("Rate2 contains Tarp: {0}", ((rate2.ChoicesMade & Choices.Tarp) != 0));
+	Console.WriteLine("Rate2 contains Driver Assist: {0}", ((rate2.ChoicesMade & Choices.DriverAssist) != 0));
+	Console.WriteLine("Rate2 contains Reefer: {0}", ((rate2.ChoicesMade & Choices.Reefer) != 0));
+	Console.WriteLine("Rate2 contains Waiting Time: {0}", ((rate2.ChoicesMade & Choices.WaitingTime) != 0));
+	Console.WriteLine("---------------------------------------------------------");
+	Console.WriteLine("Rate2 contains Waiting Time & Retention: {0}", ((rate2.ChoicesMade & (Choices.WaitingTime | Choices.Retention)) != 0));
+	Console.WriteLine("Rate2 contains Waiting Time & Deadhead: {0}", ((rate2.ChoicesMade & (Choices.WaitingTime | Choices.Deadhead)) != 0)); //only 1 matches
+	Console.WriteLine("---------------------------------------------------------");
+	Console.WriteLine("Rate2 contains Waiting Time & Deadhead: {0}", ((rate2.ChoicesMade & Choices.WaitingTime) != 0) & ((rate2.ChoicesMade & Choices.Deadhead) != 0));
+	Console.WriteLine("Rate2 contains Waiting Time & HazMat & Retention: {0}", ((rate2.ChoicesMade & Choices.Hazmat) != 0) 
+		& ((rate2.ChoicesMade & Choices.Retention) != 0) & ((rate2.ChoicesMade & Choices.DriverAssist) != 0) & ((rate2.ChoicesMade & Choices.WaitingTime) != 0));
+}
+
+[Flags]
+public enum Choices
+{
+	Unknown = 0,
+	Hazmat = 1,
+	Tarp = 2,
+	DriverAssist = 4,
+	Expedite = 8,
+	Deadhead = 16,
+	Retention = 32,
+	Reefer = 64,
+	WaitingTime = 128
+}
+
+public class Rate
+{
+	public int CarrierId { get; set; }
+	public Choices ChoicesMade { get; set; }
+}
