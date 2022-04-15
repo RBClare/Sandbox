@@ -1,0 +1,40 @@
+{ 
+    "_id" : ObjectId("62574ed520b39ae950e001f7"), 
+    "CarrierId" : 100, 
+    "Charges" : 320
+}
+{ 
+    "_id" : ObjectId("6257505c20b39ae950e007d2"), 
+    "CarrierId" : 100, 
+    "Charges" : 112
+}
+{ 
+    "_id" : ObjectId("6257509320b39ae950e008a5"), 
+    "CarrierId" : 100, 
+    "Charges" : 160
+}
+{ 
+    "_id" : ObjectId("625750b720b39ae950e0093b"), 
+    "CarrierId" : 100, 
+    "Charges" : 416
+}
+{ 
+    "_id" : ObjectId("625750f420b39ae950e00a25"), 
+    "CarrierId" : 100, 
+    "Charges" : 416
+}
+{ 
+    "_id" : ObjectId("6257510d20b39ae950e00a83"), 
+    "CarrierId" : 100, 
+    "Charges" : 288
+}
+{ 
+    "_id" : ObjectId("6257512d20b39ae950e00b16"), 
+    "CarrierId" : 100, 
+    "Charges" : 264
+}
+{ 
+    "_id" : ObjectId("6257519420b39ae950e00c9c"), 
+    "CarrierId" : 100, 
+    "Charges" : 424
+}
